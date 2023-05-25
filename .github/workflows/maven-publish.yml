@@ -2,8 +2,7 @@ name: Java CI with Maven (verifies code style and dry run to check all the step 
 
 on:
   pull_request:
-  
-  branches: [ master, develop, feature/*, release/* ]
+    branches: [ master, develop, feature/*, release/* ]
 
 jobs:
   build:
