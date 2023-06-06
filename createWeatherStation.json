@@ -1,0 +1,7 @@
+{
+  "external_id": "%s",
+  "name": "%s",
+  "latitude": %,.2f,
+  "longitude": %,.2f,
+  "altitude": %,.2f
+}
