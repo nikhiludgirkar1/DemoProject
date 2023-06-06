@@ -28,8 +28,10 @@ public class JsonUtil {
     public static String readJsonFromResource(String fileName) {
         String requestJson = null;
         try {
-            InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
-            System.out.println("Input Stream " + inputStream);
+//            InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+//            InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+            FileInputStream inputStream = new FileInputStream(fileName);
+            System.out.println("Input Stream in this method :: " + inputStream);
             requestJson = JsonUtil.readJsonFromFile(inputStream);
         } catch (final IOException e) {
             logger.error(e.getMessage());
