@@ -14,7 +14,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.demoproject.hooks, com.demoproject.definitions")
 @ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "html:target/cucumber.html," + "pretty,json:target/cucumber.json,summary,junit:target/cucumber.xml")
-@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@firsttest-1")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "not (@Ignore or @disabled)")
 @ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
 @ConfigurationParameter(key = PLUGIN_PUBLISH_TOKEN_PROPERTY_NAME, value = "a62e34da-b425-4b40-89ff-779a6bf593a8")
 @ConfigurationParameter(key = ANSI_COLORS_DISABLED_PROPERTY_NAME, value = "true")

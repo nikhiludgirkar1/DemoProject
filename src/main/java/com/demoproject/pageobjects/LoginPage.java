@@ -6,10 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 
-public class FirstStepsPage {
+public class LoginPage {
     private static final String GMAIL_LINK = "//a[contains(.,'Gmail')]";
+
+    private static final String USERNAME_TEXTBOX = "user-name";
+    private static final String PASSWORD_TEXTBOX = "password";
+    private static final String LOGIN_BUTTON = "login-button";
     private WebDriver driver;
-    public FirstStepsPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -25,5 +29,18 @@ public class FirstStepsPage {
     public boolean isImagesPageLoaded() {
         return driver.findElement(By.xpath("//img[@alt='Google Images']")).isDisplayed();
     }
+
+    public void setUserName(String userName) {
+        driver.findElement(By.id(USERNAME_TEXTBOX)).sendKeys(userName);
+    }
+
+    public void setPassword(String password) {
+        driver.findElement(By.id(PASSWORD_TEXTBOX)).sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        driver.findElement(By.id(LOGIN_BUTTON)).click();
+    }
+
 
 }
