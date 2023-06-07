@@ -45,12 +45,6 @@ public class JsonUtil {
         }
     }
 
-    public static String readJsonFromFile(final InputStream inputStream) throws IOException {
-        try (inputStream) {
-            return readFromInputStream(inputStream);
-        }
-    }
-
     private static String readFromInputStream(InputStream inputStream) throws IOException {
         final BufferedReader reader = new BufferedReader(
                 new InputStreamReader(inputStream, Charset.forName(JsonUtil.ENCODING_TYPE)));

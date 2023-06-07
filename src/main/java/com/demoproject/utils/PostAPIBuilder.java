@@ -12,9 +12,6 @@ import java.util.Map;
 public class PostAPIBuilder {
 
     public static Map<String, Object> postRequestBody(String fileName, Object... values) {
-//        String requestJson = new String("src/main/resources/json/api/"+"createWeatherStation.json");
-//        String requestJson = JsonUtil
-//                .readJsonFromResource(DemoProjectConstants.PROPERTIES_CONFIG.requestJsonPath() + "createWeatherStation.json");
         String requestJson = new String(fileName);
         Map<String, Object> requestBody = new HashMap<>();
         try {
