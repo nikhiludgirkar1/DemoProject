@@ -19,6 +19,7 @@ public class LoginPage {
 
     public void clickImage() {
         WebElement gmail = driver.findElement(By.xpath(GMAIL_LINK));
+
         driver.findElement(RelativeLocator.with(By.tagName("a")).toRightOf(gmail)).click();
     }
 
