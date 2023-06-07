@@ -31,6 +31,7 @@ public class LoginPage {
         return driver.findElement(By.xpath("//img[@alt='Google Images']")).isDisplayed();
     }
 
+    //added comment
     public void setUserName(String userName) {
         driver.findElement(By.id(USERNAME_TEXTBOX)).sendKeys(userName);
     }
