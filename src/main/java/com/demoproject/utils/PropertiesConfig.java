@@ -33,4 +33,7 @@ public interface PropertiesConfig extends Config {
 
     @Key("HEADLESS")
     boolean headless();
+
+    @Key("APP_TOKEN")
+    String appToken();
 }

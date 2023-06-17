@@ -1,6 +1,7 @@
 package com.demoproject.definitions;
 
 import com.demoproject.helper.api.*;
+import com.demoproject.helper.api.data.RandomWeatherData;
 import com.demoproject.utils.PostAPIBuilder;
 import com.demoproject.utils.RandomDataUtil;
 import io.cucumber.java.en.Given;
@@ -61,6 +62,7 @@ public class ApiDefinition {
 //        System.out.println("text is " + text);
 //    }
 
+
     public void setWeatherData(Map<String, Object> testData) {
         this.testData = testData;
     }
@@ -71,22 +73,12 @@ public class ApiDefinition {
 
     @Given("User should be able to create weather station with valid weather details")
     public void userShouldBeAbleToCreateWeatherStation() {
-        String externalId = RandomDataUtil.getExternalId();
-        String name = RandomDataUtil.getRandomName();
-        double latitude = RandomDataUtil.getLatitude();
-        double longitude = RandomDataUtil.getLongitude();
-        double altitude = RandomDataUtil.getAltitude();
-        Map<String, Object> weatherMap = new HashMap<>();
-        weatherMap.put("externalId", externalId);
-        weatherMap.put("name", name);
-        weatherMap.put("latitude", latitude);
-        weatherMap.put("longitude", longitude);
-        weatherMap.put("altitude", altitude);
-        setWeatherData(weatherMap);
+        Map<String, Object> weatherData = RandomWeatherData.getWeatherData();
+        setWeatherData(weatherData);
         response = given()
                 .spec(reqResApi.getRequestSpecification())
-                .body(PostAPIBuilder.postRequestBody("createWeatherStation.json", externalId, name, latitude, longitude, altitude))
-                .queryParam("appid", "7fe67bf08c80ded756e598d6f8fedaea")
+                .body(PostAPIBuilder.postRequestBody("createWeatherStation.json", weatherData.get("externalId"), weatherData.get("name"), weatherData.get("latitude"), weatherData.get("longitude"), weatherData.get("altitude")))
+                .queryParam("appid", DemoProjectConstants.PROPERTIES_CONFIG.appToken())
                 .basePath(endpointData.get("createStation"))
                 .when()
                 .post()
