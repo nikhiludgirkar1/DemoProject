@@ -15,8 +15,7 @@ import java.lang.invoke.MethodHandles;
 public class Hooks {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private WebDriver driver;
-    private Scenario currentScenario;
-    private String scenarioName;
+
     private static String featureName = "";
 
     public WebDriver getDriver() {

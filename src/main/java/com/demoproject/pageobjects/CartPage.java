@@ -17,7 +17,7 @@ public class CartPage {
 
     public boolean isProductAvailable(String productName) {
         WebElement descriptionElement = driver.findElement(By.xpath("//div[@class='cart_desc_label'][contains(.,'Description')]"));
-        return driver.findElement(RelativeLocator.with(By.xpath(String.format(AVAILABLE_PRODUCT, productName))).below(descriptionElement)).isDisplayed();
+        return CommonLocators.isLocatorVisible(driver.findElement(RelativeLocator.with(By.xpath(String.format(AVAILABLE_PRODUCT, productName))).below(descriptionElement)));
     }
 
     public void clickCheckout() {
